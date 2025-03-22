@@ -4,6 +4,7 @@ import io.github.GalileuCMMoares.produtosapi.model.Produto;
 import io.github.GalileuCMMoares.produtosapi.repository.ProdutoRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -41,6 +42,11 @@ public class ProdutoController {
             produto.setId(id);
             repository.save(produto);
         }
+    }
+
+    @GetMapping
+    public List<Produto> Buscar(@RequestParam("nome") String nome){
+        return repository.findByNome(nome);
     }
 
 }
