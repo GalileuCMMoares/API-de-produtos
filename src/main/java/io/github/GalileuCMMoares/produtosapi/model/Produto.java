@@ -1,7 +1,12 @@
 package io.github.GalileuCMMoares.produtosapi.model;
 
-public class Produto {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
+public class Produto {
+    @Id
     private String id;
     private String nome;
     private String descricao;
