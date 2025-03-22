@@ -34,4 +34,13 @@ public class ProdutoController {
         repository.deleteById(id);
     }
 
+    @PutMapping("/{id}")
+    public void atualizar(@PathVariable("id") String id, @RequestBody Produto produto) {
+        var produtoSalvo = repository.findById(id).orElse(null);
+        if (produtoSalvo != null) {
+            produto.setId(id);
+            repository.save(produto);
+        }
+    }
+
 }
